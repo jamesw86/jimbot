@@ -1,1 +1,1 @@
-worker: py JimBot.py
+worker: python JimBot.py
