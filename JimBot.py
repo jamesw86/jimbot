@@ -16,14 +16,14 @@ async def on_message(message):
 
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
-    """ if "COVID" in message.content:
+    if "COVID" in message.content:
         days = image.getDays()
         try:
             f = discord.File("Day" + str(days) + ".jpg")
             await message.channel.send(file=f)
         except Exception as err:
             await message.channel.send("Error! Please contact Jim.")
-            print(err) """
+            print(err)
     
 
 client.run(os.environ['BOT_TOKEN'])
