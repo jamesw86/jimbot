@@ -1,6 +1,7 @@
 import discord
 import image
 import os
+import TestScript
 
 client = discord.Client()
 
