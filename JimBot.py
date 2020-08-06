@@ -25,6 +25,10 @@ async def on_message(message):
         except Exception as err:
             await message.channel.send("Error! Please contact Jim.")
             print(err)
+    if message.content.startswith('$birthday'):
+        name = split(message.content)[1]
+        birthday = TestScript.getBirthday(name)
+        await message.channel.send(name + "'s birthday is " + str(birthday))
     
 
 client.run(os.environ['BOT_TOKEN'])

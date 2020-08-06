@@ -6,3 +6,12 @@ try:
     print("Connected!")
 except:
     print("Error connecting.")
+
+cur = conn.cursor()
+def getBirthday(name):
+    try:
+        cur.execute("SELECT \"Birthday\" FROM \"Users\" WHERE \"Name\"='" + name + "';") 
+        return cur.fetchone()
+    except:
+        print("Error occured trying to get birthday.")
+        return "Error"
