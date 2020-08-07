@@ -38,7 +38,7 @@ async def on_message(message):
         print("Date = " + str(birthday))
         try:
             if isinstance(birthday, datetime.date):
-                birthday = birthday.month + "/" + birthday.day
+                birthday = str(birthday.month) + "/" + str(birthday.day)
                 await message.channel.send(name + "'s birthday is " + str(birthday))
             elif birthday == None:
                 await message.channel.send(name + " doesn't have a birthday listed in the database.")
