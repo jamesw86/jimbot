@@ -27,16 +27,19 @@ async def on_message(message):
             await message.channel.send("Error! Please contact Jim.")
             print(err)
     if message.content.startswith('$birthday'):
-        name = message.content.split()[1]
-        birthday = TestScript.getBirthday(name)
-        print(birthday)
-        birthday = birthday[0]
-        print(birthday)
-        if isinstance(birthday, datetime.date):
-            birthday = birthday.month + "/" + birthday.day
-            await message.channel.send(name + "'s birthday is " + str(birthday))
-        elif birthday == None:
-           await message.channel.send(name + " doesn't have a birthday listed in the database.")
+        try: 
+            name = message.content.split()[1]
+            birthday = TestScript.getBirthday(name)
+            print("Datetime = " + birthday)
+            birthday = birthday[0]
+            print("Date = " + birthday)
+            if isinstance(birthday, datetime.date):
+                birthday = birthday.month + "/" + birthday.day
+                await message.channel.send(name + "'s birthday is " + str(birthday))
+            elif birthday == None:
+                await message.channel.send(name + " doesn't have a birthday listed in the database.")
+        except:
+            await message.channel.send("Type ```$birthday <name>``` to see if they have a birthday.")
         
         
 
