@@ -28,16 +28,16 @@ async def on_message(message):
             print(err)
     if message.content.startswith('$birthday'):
         name = message.content.split()[1]
-        birthday = TestScript.getBirthday(name),
-        try:
-            birthday = birthday[0]
-            if isinstance(birthday, datetime.date):
-                birthday = birthday.month + "/" + birthday.day
-                await message.channel.send(name + "'s birthday is " + str(birthday))
-            elif birthday == None:
-                await message.channel.send(name + "doesn't have a birthday listed in the database.")
-        except:
-            print("Error with JimBot Birthday")
+        birthday = TestScript.getBirthday(name)
+        print(birthday)
+        birthday = birthday[0]
+        print(birthday)
+        if isinstance(birthday, datetime.date):
+            birthday = birthday.month + "/" + birthday.day
+            await message.channel.send(name + "'s birthday is " + str(birthday))
+        elif birthday == None:
+           await message.channel.send(name + " doesn't have a birthday listed in the database.")
+        
         
 
     
