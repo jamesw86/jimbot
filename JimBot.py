@@ -29,15 +29,22 @@ async def on_message(message):
     if message.content.startswith('$birthday'):
         try: 
             name = message.content.split()[1]
-            birthday = TestScript.getBirthday(name)
+            try:
+                birthday = TestScript.getBirthday(name)
+            except Exception as err:
+                birthday = (-1,)
+                print("Breakpoint one", err)
             print("Datetime = " + birthday)
             birthday = birthday[0]
             print("Date = " + birthday)
-            if isinstance(birthday, datetime.date):
-                birthday = birthday.month + "/" + birthday.day
-                await message.channel.send(name + "'s birthday is " + str(birthday))
-            elif birthday == None:
-                await message.channel.send(name + " doesn't have a birthday listed in the database.")
+            try:
+                if isinstance(birthday, datetime.date):
+                    birthday = birthday.month + "/" + birthday.day
+                    await message.channel.send(name + "'s birthday is " + str(birthday))
+                elif birthday == None:
+                    await message.channel.send(name + " doesn't have a birthday listed in the database.")
+            except Exception as err:
+                print("Breakpoints 2", err)
         except:
             await message.channel.send("Type ```$birthday <name>``` to see if they have a birthday.")
         
