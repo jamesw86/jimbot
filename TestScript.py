@@ -14,4 +14,4 @@ def getBirthday(name):
         return cur.fetchone()
     except:
         print("Error occured trying to get birthday.")
-        return (None,)
+        return (None, None)
