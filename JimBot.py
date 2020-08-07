@@ -35,7 +35,7 @@ async def on_message(message):
             print("Breakpoint one", err)
         print("Datetime = " + birthday)
         birthday = birthday[0]
-        print("Date = " + birthday)
+        print("Date = " + str(birthday))
         try:
             if isinstance(birthday, datetime.date):
                 birthday = birthday.month + "/" + birthday.day
