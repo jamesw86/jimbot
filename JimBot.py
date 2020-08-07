@@ -33,7 +33,7 @@ async def on_message(message):
         except Exception as err:
             birthday = (-1,)
             print("Breakpoint one", err)
-        print("Datetime = " + birthday)
+        print("Datetime = " + str(birthday))
         birthday = birthday[0]
         print("Date = " + str(birthday))
         try:
