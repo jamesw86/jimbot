@@ -44,7 +44,7 @@ async def on_message(message):
                 await message.channel.send(name + " doesn't have a birthday listed in the database.")
         except Exception as err:
             print("Breakpoints 2", err)
-            await message.channel.send("Type ```$birthday <name>``` to see if they have a birthday.")
+           #await message.channel.send("Type ```$birthday <name>``` to see if they have a birthday.")
         
         
 
