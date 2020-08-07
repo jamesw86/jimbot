@@ -31,7 +31,7 @@ async def on_message(message):
         birthday = TestScript.getBirthday(name),
         try:
             birthday = birthday[0]
-            if isinstance(birthday[0], datetime.date):
+            if isinstance(birthday, datetime.date):
                 birthday = birthday.month + "/" + birthday.day
                 await message.channel.send(name + "'s birthday is " + str(birthday))
             elif birthday == None:
