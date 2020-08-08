@@ -21,4 +21,4 @@ font = ImageFont.truetype("arial.ttf", 30)
 draw.text((10, 15), date_text, font=font, fill="black")
 
 im.save("Day" + str(getDays()) + ".jpg")
-
+print("Image saved as: " + "Day" + str(getDays()) + ".jpg")
