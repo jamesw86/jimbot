@@ -20,6 +20,7 @@ async def on_message(message):
         await message.channel.send('Hello!')
     if "COVID" in message.content:
         days = image.getDays()
+        print("Days: ", days)
         try:
             f = discord.File("Day" + str(days) + ".jpg")
             await message.channel.send(file=f)
